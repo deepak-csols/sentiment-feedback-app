@@ -1,0 +1,32 @@
+
+.login-container {
+    display: flex;
+    height: 100vh;
+  }
+.login-form {
+    /* flex: 1; */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .link{
+    padding: 20px;
+    margin-left: 40px;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .link a{
+    cursor: pointer;
+    text-decoration: underline;
+  }

@@ -1,0 +1,92 @@
+<header>
+    <!-- <h1>Instant Feedback</h1> -->
+    <img src="assets/instant_feedback_logo_transparent.png" alt="">
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Support</a>
+      <a href="#">Contact</a>
+      <a href="#" (click)="scrollToPricing($event)">Pricing</a>
+      <a *ngIf="userId === null || userId === undefined" (click)="openLogin()">Log in</a>
+      <a *ngIf="userId !== null && userId !== undefined" (click)="logout()"> Logout</a>
+
+    </nav>
+  </header>
+  
+  <main>
+    <div class="content">
+      <h2><b>Enhance Customer Satisfaction with Instant Feedback.</b></h2>
+      <p>Quickly address customer concerns and improve service quality by gathering real-time feedback.</p>
+      <div class="buttons">
+        <button mat-raised-button color="primary">Start a free trial</button>
+        <button mat-stroked-button>Demo</button>
+      </div>
+    </div>
+    <div class="image">
+      <img src="assets/feedback_background.jpg" alt="Office illustration">
+    </div>
+      
+  </main>
+
+
+  <div class="price" #pricingSection>
+    <h2><b>Pricing</b></h2>
+    <p>Two simple options, Free for everyone and the Pro for these who need that extra flavor.</p>
+    <div class="pricing">
+        <mat-card class="pricing-card">
+            <mat-card-header>
+              <mat-card-title>Free trial</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <br>
+              <img src="assets/free.png" alt="Icon" class="card-icon">
+              <ul>
+                <li>Unlimited changelogs</li>
+                <li>Public page customization</li>
+                <li>Widget customization</li>
+                <li>Custom categories</li>
+                <li>Eyecatcher</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="pricing-card">
+            <mat-card-header>
+              <mat-card-title>Plus<br></mat-card-title>
+              <mat-card-title>$20 / month</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <img src="assets/pro.png" alt="Icon" class="card-icon">
+              <ul>
+                <li>Unlimited changelogs</li>
+                <li>Public page customization</li>
+                <li>Widget customization</li>
+                <li>Custom categories</li>
+                <li>Eyecatcher</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+      </div>
+  </div>
+  
+
+  <footer>
+    <div class="footer-container">
+        <div class="footer-left">
+          <img src="assets/logo.png" alt="Logo" class="footer-logo">
+          <address>
+            <p>Instant Feedback</p>
+            <p>506, Amar Neptune,</p>
+            <p>Baner, Pune, Maharashtra, 411045</p>
+          </address>
+        </div>
+        <div class="footer-right">
+          <a href="#">Privacy policy</a>
+          <a href="#">Terms</a>
+          <a href="#">Security</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+      
+  </footer>
+
+  

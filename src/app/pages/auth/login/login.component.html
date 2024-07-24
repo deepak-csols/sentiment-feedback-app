@@ -1,0 +1,35 @@
+<div class="login-container">
+    <div class="login-image">
+      <!-- <img src="assets/login_page2.png" alt="Palm leaf"> -->
+      <div class="logo-section">
+        <!-- <h1>Feedback AI</h1>
+        <p>Feedback Ai</p>
+        <div class="logo-list">
+          <img src="path-to-mention-logo.png" alt="Mention">
+          <img src="path-to-buffer-logo.png" alt="Buffer">
+          <img src="path-to-grooplr-logo.png" alt="Grooplr">
+        </div> -->
+      </div>
+    </div>
+    <div class="login-form">
+      <h2>Log in with:</h2>
+      <button mat-raised-button class="google-btn" (click)="onGoogleLogin()">
+          <img src="assets/google_logo.png" alt="Google">
+          <span>Continue With Google</span>
+      </button>
+      <p class="divider">OR</p>
+      <form (ngSubmit)="onLogin()">
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Your e-mail address" id="username" [(ngModel)]="username" name="username">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <input matInput type="password" placeholder="Password" id="password" [(ngModel)]="password" name="password">
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary">Log in</button>
+      </form>
+      <div class="links">
+        <a (click)="openSignup()">Sign up</a>
+        <a >Forgot your password?</a>
+      </div>
+    </div>
+  </div>

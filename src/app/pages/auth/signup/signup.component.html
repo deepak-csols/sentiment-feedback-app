@@ -1,0 +1,24 @@
+<div class="login-container">
+    
+    <div class="login-form">
+      <h2>Sign Up : </h2>
+      <!-- <button mat-raised-button class="google-btn">
+          <img src="assets/google_logo.png" alt="Google">
+          <span>Continue With Google</span>
+      </button> -->
+      <!-- <p class="divider">OR</p> -->
+      <form (ngSubmit)="onSignup()">
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Your e-mail address" id="username" [(ngModel)]="username" name="username">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <input matInput type="password" placeholder="Password" id="password" [(ngModel)]="password" name="password">
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary" (click)="onSignup()">Register</button>
+      </form>
+      <div class="link">
+        <p>Already have an account? <a (click)="openLogin()"> Log In</a></p>
+      </div>
+      
+    </div>
+  </div>

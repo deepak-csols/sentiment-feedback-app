@@ -17,9 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
-    DashboardComponent,
-    HeaderComponent,
-    FooterComponent
+    DashboardComponent
   ],
   imports: [
     DashboardRoutingModule,

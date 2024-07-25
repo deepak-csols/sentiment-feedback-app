@@ -1,13 +1,38 @@
 
+.content {
+  flex: 1;
+  }
 
-.example-card {
-    max-width: 400px;
+  .review-text-body{
+    display: flex;
+    align-items: flex-end;
+    padding-top: 0.75rem;
+    padding-bottom: 0.5rem;
+  }
+
+ .review-text {
+    flex:1 1 0%;
+    font-family: inherit;
+    
+    
+ } 
+
+.heading {
+    text-align: center;
+    font-family: "PT Serif";
+    font-size: "34px",
+    
+}
+
+.feedback-card {
+  max-width: 600px;  
     padding: 5px;
-    margin: 20px;
-    box-shadow: 1px;
+    margin: 20px auto;
+    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
   
-.example-card-footer {
+.feedback-card-footer {
     padding: 16px;
 }
 

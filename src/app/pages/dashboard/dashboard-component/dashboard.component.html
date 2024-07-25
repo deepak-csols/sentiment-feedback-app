@@ -1,22 +1,29 @@
-<app-header></app-header>
-
-<div *ngFor="let i of [1, 2, 3, 4, 5]">
-  <mat-card class="example-card" appearance="outlined" style="max-width: 600px; margin: 20px auto; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-    <mat-card-header style="display: flex; align-items: center; background-color: #3d3d4e; padding: 6px; border-radius: 5px; color: antiquewhite;">
-        <mat-card-title><i class="fas fa-user" style="margin-right: 8px;"></i>Santanu Mudi</mat-card-title>
-    </mat-card-header>
-    <mat-card-content style="padding: 16px;">
-      <p style="margin: 0; font-size: 1.1em; color: #555;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet accumsan arcu. Nulla facilisi. esfsdfsdfs dflkjsi lsdfknondsf i dfsf ids fsd fisd</p>
-    </mat-card-content>
-    <mat-card-footer class="example-card-footer" style="padding: 16px; border-radius: 8px;">
-      <mat-chip-set>
-        <mat-chip color="accent" selected><i class="fas fa-mobile-alt" style="margin-right: 4px;"></i>Mob No: 9064020193</mat-chip>
-        <mat-chip color="warn"><i class="fas fa-exclamation-triangle" style="margin-right: 4px;"></i>Severity: 4</mat-chip>
-        <mat-chip selected><i class="fas fa-globe" style="margin-right: 4px;"></i>Source: Google</mat-chip>
-        
-      </mat-chip-set>
-    </mat-card-footer>
-  </mat-card>
+<div class="content">
+    <h1 class="heading">
+      <span>Reviews</span>
+    </h1>
+    <div *ngFor="let review of reviewModelList">
+      <mat-card class="feedback-card" appearance="outlined">
+        <mat-card-header style="display: flex; align-items: center; background-color: #3d3d4e; padding: 6px; border-radius: 5px; color: antiquewhite;">
+            <mat-card-title><i class="fas fa-user" style="margin-right: 8px;"></i>{{review.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="review-text-body">
+          <p class="review-text">{{review.reviewMsg}}</p>
+        </mat-card-content>
+        <mat-card-footer class="example-card-footer" style="padding: 16px; border-radius: 8px;">
+          <mat-chip-set>
+            <mat-chip color="accent" selected><i class="fas fa-mobile-alt" style="margin-right: 4px;"></i>{{review.email}}</mat-chip>
+            <mat-chip color="warn"><i class="fas fa-exclamation-triangle" style="margin-right: 4px;"></i>{{review.severity}}</mat-chip>
+            <mat-chip selected><i class="fas fa-globe" style="margin-right: 4px;"></i>{{review.source}}</mat-chip>
+            
+          </mat-chip-set>
+        </mat-card-footer>
+        <mat-card-actions align="end">
+          <button mat-button>Archive</button>
+          <button mat-button>Reply</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
 </div>
 
 
@@ -24,5 +31,5 @@
   
 
 
-<app-footer></app-footer>
+
 

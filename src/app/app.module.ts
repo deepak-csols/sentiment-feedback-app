@@ -11,7 +11,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './pages/home/home.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { SignupComponent } from './pages/auth/signup/signup.component';
@@ -20,20 +19,13 @@ import { RedirectComponent } from './pages/redirect/redirect.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     RedirectComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatButtonModule,
-    MatInputModule,
-    MatFormFieldModule,
-    FormsModule,
-    HttpClientModule,
-    MatToolbarModule,
-    MatCardModule
+    HttpClientModule
   ],
   providers: [
     provideClientHydration(),

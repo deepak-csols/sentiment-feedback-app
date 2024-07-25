@@ -17,11 +17,11 @@
     <mat-icon>dashboard</mat-icon>
     <span>Dashboard</span>
   </button>
-  <button mat-menu-item>
+  <button (click)="routeTo('settings')" mat-menu-item>
     <mat-icon>settings</mat-icon>
     <span>Settings</span>
   </button>
-  <button mat-menu-item>
+  <button (click)="routeTo('logout')" mat-menu-item>
     <mat-icon>logout</mat-icon>
     <span>Logout</span>
   </button>

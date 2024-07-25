@@ -1,0 +1,65 @@
+.setting-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 201;
+    background: #fff;
+    overflow: auto;
+    transform: translateY(-20px);
+    transition: transform .3s ease-in-out, opacity .15s ease-in-out;
+}
+
+.setting-wrapper{
+    max-width: 1024px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 100%;
+}
+
+.settings {
+    margin: 0 auto;
+    max-width: 780px;
+    display: grid;
+    grid-template-columns: 180px auto;
+}
+
+.setting-header{
+    font-size: 30px;
+    font-weight: 500;
+    padding: 50px 0;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.setting-sidebar{
+    padding-right: 30px;
+}
+
+.sidebar-content {
+    line-height: 30px;
+    display: block;
+    color: #b5babe;
+    padding: 0 3px;
+    margin: 0 3px;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+    transition: color .15s ease-in-out;
+}
+
+.is-active{
+    color: #3778ff;
+    cursor: default;
+}
+.close-button {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.sidebar-body {
+    padding: 30px;
+}
+

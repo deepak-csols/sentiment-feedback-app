@@ -1,11 +1,9 @@
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivate, CanActivateFn, GuardResult, MaybeAsync, Router, RouterStateSnapshot } from "@angular/router";
+import { ActivatedRouteSnapshot, CanActivateFn, GuardResult, MaybeAsync, Router, RouterStateSnapshot } from "@angular/router";
 import { Observable, of } from "rxjs";
 
 export const AuthGuard : CanActivateFn = (route, state) => { 
 
-    
 
     let userId = localStorage.getItem('userId');
     let accessToken = localStorage.getItem('accessToken');

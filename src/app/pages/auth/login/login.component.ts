@@ -29,7 +29,7 @@ export class LoginComponent {
         console.log('Login successfull', response);
         localStorage.setItem("userId", response.userId);
         localStorage.setItem("accessToken", response.accessToken);
-        this.router.navigate(['/dashboard'])
+        this.router.navigate(['app/dashboard'])
       },
       error => {
         console.log('Login failed', error);

@@ -3,24 +3,29 @@
     <div class="profile-heading">
         <span>User Profile</span>
     </div>
-    <form class="profile-form">
+    <form [formGroup]="completeProfileForm" (ngSubmit)="completeProfile()" class="profile-form">
         <mat-form-field>
             <mat-label>Your Name</mat-label>
-            <input matInput>
+            <input matInput formControlName="name" class="form-control">
           </mat-form-field>
-          <mat-form-field>
+          <!-- <mat-form-field>
             <mat-label>Display Name</mat-label>
             <input matInput>
-          </mat-form-field>
+          </mat-form-field> -->
           <mat-form-field>
             <mat-label>Email Address</mat-label>
-            <input matInput>
+            <input matInput placeholder="Need to show this emial and this field should be disabled">
           </mat-form-field>
-          <mat-form-field>
+          <!-- <mat-form-field>
             <mat-label>Designation</mat-label>
             <input matInput>
+          </mat-form-field> -->
+          <mat-form-field>
+            <mat-label>Contact No</mat-label>
+            <input matInput formControlName="contactNo" class="form-control">
           </mat-form-field>
-          <button mat-fab extended> Save </button>
+
+          <button mat-fab extended type="submit"> Save </button>
      </form>
      
 

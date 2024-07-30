@@ -18,6 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AccountComponent } from './account/account.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -41,6 +42,8 @@ import { AccountComponent } from './account/account.component';
     MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   
   ],
   providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}]

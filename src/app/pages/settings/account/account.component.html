@@ -2,16 +2,23 @@
     <div class="profile-heading">
         <span>Account</span>
     </div>
-    <form class="profile-form">
+    <form [formGroup]="addBusinessForm" (ngSubmit)="addBusiness()" class="profile-form">
         <mat-form-field>
-            <mat-label>Company Name</mat-label>
-            <input matInput>
+            <mat-label>Business Name</mat-label>
+            <input matInput formControlName="businessName" class="form-control">
+            <mat-error *ngIf="addBusinessForm.controls['businessName'].invalid">
+              Business Name is required
+            </mat-error>
           </mat-form-field>
           <mat-form-field>
-            <mat-label>Business Type</mat-label>
-            <input matInput>
+            <mat-label>Business Category</mat-label>
+            <input matInput formControlName="businessCategory" class="form-control">
+            <mat-error *ngIf="addBusinessForm.controls['businessCategory'].invalid">
+              Business Category is required
+            </mat-error>
           </mat-form-field>
-          <button mat-fab extended> Save </button>
+          <button mat-fab extended type="submit"> Save </button>
+          <!-- <button mat-raised-button color="primary" type="submit" [disabled]="addBusinessForm.invalid">Save</button> -->
      </form>
      
 

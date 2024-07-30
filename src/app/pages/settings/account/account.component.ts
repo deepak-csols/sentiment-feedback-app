@@ -14,20 +14,44 @@ export class AccountComponent implements OnInit {
   // businessCategory!: string;
 
   addBusinessForm!: FormGroup;
+  valid: any;
 
   constructor(private portalService: PortalService, private formBuilder: FormBuilder) { }
   
   ngOnInit(): void {
+
+    this.valid = {
+      'userId': localStorage.getItem('userId'),
+      'accessToken': localStorage.getItem('accessToken')
+    }
     
     this.addBusinessForm = this.formBuilder.group({
       businessName: ['', Validators.required],
       businessCategory: ['', Validators.required]
     });
 
+    this.getBusinesses();
+
   }
 
   
-  
+  getBusinesses(){
+
+    this.portalService.getBusinesses(this.valid).subscribe(
+      response => {
+        console.log('Get profile response is : ', response);
+        this.addBusinessForm = this.formBuilder.group({
+          businessName: response[0].businessName,
+          businessCategory: response[0].businessCategory
+        });
+
+      },
+      error => {
+        console.error('An error occurred while get prfile details');
+      }
+    )
+
+  }
 
   addBusiness(){
 

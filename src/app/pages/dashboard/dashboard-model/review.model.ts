@@ -3,9 +3,11 @@ export class ReviewModel {
     severity!: Number; // severity innumber i.e 1,2,34
     reviewMsg!: String; // review message given by the customer
     dateTime!: String; // datetime when customer entered the message
-    contact!: String; // customer contact details
-    email!: String; // customer email id
-    name!:String; // name of the customer
-    type!:String; // +ve or -ve Review
+    customerContact!: String; // customer contact details
+    customerEmail!: String; // customer email id
+    customerName!:String; // name of the customer
+    reviewType!:String; // +ve or -ve Review
     reviewCategory!:String; // Review Category -- Is it for Food or Ambience or for Both etc.
+    aiResponse!: String;
+    businessId!: String;
 }

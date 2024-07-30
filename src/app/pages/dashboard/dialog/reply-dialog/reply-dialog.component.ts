@@ -14,7 +14,7 @@ export class ReplyDialogComponent implements OnInit {
   
   response!: String
   ngOnInit(): void {
-    
+    this.response = this.data.aiResponse;
   }
 
   

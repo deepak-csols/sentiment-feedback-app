@@ -11,15 +11,44 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ProfileComponent implements OnInit{
 
   completeProfileForm!: FormGroup;
+  valid: any;
 
   constructor(private portalService: PortalService, private formBuilder: FormBuilder){ }
 
   ngOnInit(): void {
+
+    this.valid = {
+      'userId': localStorage.getItem('userId'),
+      'accessToken': localStorage.getItem('accessToken')
+    }
     
     this.completeProfileForm = this.formBuilder.group({
       name: ['', Validators.required],
+      email: ['', Validators.required],
       contactNo: ['', Validators.required]
     });
+
+    this.getProfile();
+
+  }
+
+  getProfile(){
+
+
+    this.portalService.getProfile(this.valid).subscribe(
+      response => {
+        console.log('Get profile response is : ', response);
+        this.completeProfileForm = this.formBuilder.group({
+          name: response.name,
+          email: [{value: response.email, disabled: true}],
+          contactNo: response.contactNumber
+        });
+
+      },
+      error => {
+        console.error('An error occurred while get prfile details');
+      }
+    )
 
   }
 
@@ -45,9 +74,6 @@ export class ProfileComponent implements OnInit{
         console.log("An error occurred!")
       }
     )
-
-
-
 
   }
 

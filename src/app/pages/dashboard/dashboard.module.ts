@@ -14,10 +14,15 @@ import {MatChipsModule} from '@angular/material/chips';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ReplyDialogComponent } from './dialog/reply-dialog/reply-dialog.component';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    ReplyDialogComponent
   ],
   imports: [
     DashboardRoutingModule,
@@ -31,7 +36,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatChipsModule,
     MatOptionModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    FormsModule
+    
   ]
 })
 export class DashboardModule { }

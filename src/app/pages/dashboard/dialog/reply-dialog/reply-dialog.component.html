@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Reply | {{data.source}} | {{data.name}}</h2>
+<mat-dialog-content>
+    <p>
+      {{data.reviewMsg}}  
+    </p>
+    <mat-form-field style="width: 100%;">
+        <mat-label>Response</mat-label>
+        <textarea matInput [(ngModel)]="response" ></textarea>
+    </mat-form-field>
+<mat-dialog-content>
+<mat-dialog-actions align="end" style="width: 100%;">
+    <button mat-button mat-dialog-close>Close</button>
+    <button mat-button color="primary" cdkFocusInitial>Submit</button>
+</mat-dialog-actions>

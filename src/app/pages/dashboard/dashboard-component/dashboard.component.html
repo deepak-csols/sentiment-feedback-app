@@ -1,10 +1,13 @@
 <div class="content">
-    <h1 class="heading">
-      <span>Reviews</span>
-    </h1>
+    <div class="stick-top">
+      <h1 class="heading">
+        <span>Reviews</span>
+      </h1>
+      <mat-icon>filter_list</mat-icon>
+    </div>
     <div *ngFor="let review of reviewModelList">
       <mat-card class="feedback-card" appearance="outlined">
-        <mat-card-header style="display: flex; align-items: center; background-color: #3d3d4e; padding: 6px; border-radius: 5px; color: antiquewhite;">
+        <mat-card-header style="">
             <mat-card-title><i class="fas fa-user" style="margin-right: 8px;"></i>{{review.name}}</mat-card-title>
         </mat-card-header>
         <mat-card-content class="review-text-body">
@@ -20,7 +23,7 @@
         </mat-card-footer>
         <mat-card-actions align="end">
           <button mat-button>Archive</button>
-          <button mat-button>Reply</button>
+          <button (click)="openReplyDialog(review)" mat-button>Reply</button>
         </mat-card-actions>
       </mat-card>
     </div>

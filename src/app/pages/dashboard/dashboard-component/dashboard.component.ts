@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReviewModel } from '../dashboard-model/review.model';
+import { MatDialog } from '@angular/material/dialog';
+import { ReplyDialogComponent } from '../dialog/reply-dialog/reply-dialog.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +12,9 @@ export class DashboardComponent implements OnInit {
 
   categories:string[] = ["Google", "Website", "Yelp"];
 
+  constructor(private dialog : MatDialog) {
+
+  }
   
   reviewModelList! : ReviewModel[];
 
@@ -57,9 +62,33 @@ export class DashboardComponent implements OnInit {
 
       this.reviewModelList.push(reviewModel2);
 
+      let reviewModel3 = new ReviewModel();
+      reviewModel3.contact ="+91 8087604911";
+      reviewModel3.dateTime ="24/07/2024";
+      reviewModel3.name ="Deepak Singh";
+      reviewModel3.reviewCategory ="Food";
+      reviewModel3.severity = 0;
+      reviewModel3.type ="Positive";
+      reviewModel3.source ="Google";
+      reviewModel3.email ="deepak@digirestro.in"
+      reviewModel3.reviewMsg ="It was great food !. Looking forward to visit again! akhdjkabsdjkabkjadjkasd laksdlkas9wklnalkn klahsdnoqihlaks lshdflkasdasnl lakshdihnlkanla;nskd";
+
+
+      this.reviewModelList.push(reviewModel3);
       console.log(this.reviewModelList);
       
 
+  }
+
+  openReplyDialog(review: ReviewModel) {
+      const dialogRef = this.dialog.open(ReplyDialogComponent, {
+        width: "400px",
+        data: review
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log("Its closed !!")
+      })
   }
 
 }

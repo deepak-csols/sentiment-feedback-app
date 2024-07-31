@@ -1,17 +1,18 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PortalService {
 
-  private COMPLETE_USER_PROFILE_URL = "http://localhost:8089/api/v1/user/complete-profile";
-  private ADD_BUSINESS_DETAILS = "http://localhost:8089/api/v1/business/add-business";
-  private GET_PRIFILE_DETAILS = "http://localhost:8089/api/v1/user/get-profile";
-  private GET_ALL_REVIEWS = "http://localhost:8089/api/v1/review/all-reviews"
-  private GET_BUSINESSES_DETAILS = "http://localhost:8089/api/v1/business/get-businesses";
+  private COMPLETE_USER_PROFILE_URL = environment.host +"api/v1/user/complete-profile";
+  private ADD_BUSINESS_DETAILS = environment.host+"api/v1/business/add-business";
+  private GET_PRIFILE_DETAILS = environment.host+"api/v1/user/get-profile";
+  private GET_ALL_REVIEWS = environment.host+"api/v1/review/all-reviews"
+  private GET_BUSINESSES_DETAILS = environment.host+"api/v1/business/get-businesses";
 
   constructor(private http: HttpClient) { }
 

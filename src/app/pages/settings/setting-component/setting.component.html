@@ -3,13 +3,14 @@
         <div class="settings">
             <h2 class="setting-header">Settings</h2>
             <div class="setting-sidebar">
-                    <div *ngFor="let list of sidebarList" class="sidebar-content" [ngClass]="list === 'Profile' ? 'is-active' :''">
+                    <div *ngFor="let list of sidebarList" class="sidebar-content" [ngClass]="list === activeSettings ? 'is-active' :''">
                         <span (click)="openSettings(list)">{{list}}</span>
                     </div>
             </div>
             <div class="sidebar-body">
-                <app-profile *ngIf="setting === 'Profile'"></app-profile>
+                <app-profile [profile]="profileData" *ngIf="setting === 'Profile'"></app-profile>
                 <app-account *ngIf="setting === 'Account'"></app-account>
+                <app-integration *ngIf="setting === 'Integrations'"></app-integration>
             </div>
         </div>
         <button class="close-button" (click)="closeSettings()" mat-icon-button aria-label="close dialog" mat-dialog-close>

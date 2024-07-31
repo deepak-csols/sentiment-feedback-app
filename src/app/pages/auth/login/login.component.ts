@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../../core/service/auth/auth.service';
 import { Router } from '@angular/router';
+import { environment } from '../../../../environments/environment.development';
 
 @Component({
   selector: 'app-login',
@@ -49,7 +50,7 @@ export class LoginComponent {
     //   }
     // )
 
-    window.location.href = 'http://localhost:8089/oauth2/authorization/google'
+    window.location.href = environment.host+'oauth2/authorization/google'
 
 
 

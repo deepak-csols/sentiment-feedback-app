@@ -20,6 +20,8 @@ import { MatInputModule } from '@angular/material/input';
 import { AccountComponent } from './account/account.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { IntegrationComponent } from './integration/integration.component';
 
 
 
@@ -29,7 +31,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     ProfileComponent,
     PlanComponent,
     BillingComponent,
-    AccountComponent
+    AccountComponent,
+    IntegrationComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +48,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule,
   
   ],
   providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}]

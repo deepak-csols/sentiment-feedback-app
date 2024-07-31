@@ -1,6 +1,5 @@
 <div class="profile">
-
-    <div class="profile-heading">
+   <div class="profile-heading">
         <span>User Profile</span>
     </div>
     <form [formGroup]="completeProfileForm" (ngSubmit)="completeProfile()" class="profile-form">
@@ -25,7 +24,9 @@
             <input matInput formControlName="contactNo" class="form-control">
           </mat-form-field>
 
-          <button mat-fab extended type="submit"> Save </button>
+          <button mat-fab extended [disabled]="loader" type="submit">
+            <mat-spinner *ngIf="loader"></mat-spinner>
+            <span *ngIf="!loader"></span>Save </button>
      </form>
      
 

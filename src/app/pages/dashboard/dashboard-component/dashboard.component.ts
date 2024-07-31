@@ -115,6 +115,7 @@ export class DashboardComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log("Its closed !!")
+      this.getAllReviews();
     })
 }
 

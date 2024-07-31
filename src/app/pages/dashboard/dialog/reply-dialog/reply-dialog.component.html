@@ -5,10 +5,15 @@
     </p>
     <mat-form-field style="width: 100%;">
         <mat-label>Response</mat-label>
-        <textarea matInput [(ngModel)]="response" ></textarea>
+        <textarea rows="4" matInput [(ngModel)]="actualResponse" ></textarea>
     </mat-form-field>
+    <p>
+        <b>Reply Suggested by AI :</b>
+        <br>
+        {{data.aiResponse}}  
+    </p>
 <mat-dialog-content>
 <mat-dialog-actions align="end" style="width: 100%;">
     <button mat-button mat-dialog-close>Close</button>
-    <button mat-button color="primary" cdkFocusInitial>Submit</button>
+    <button mat-button color="primary" cdkFocusInitial (click)="replyReview(data.reviewId)">Submit</button>
 </mat-dialog-actions>

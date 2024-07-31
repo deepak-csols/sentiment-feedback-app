@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { ReviewModel } from '../dashboard-model/review.model';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
+import { environment } from '../../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
 
-  private GET_ALL_REVIEWS = "http://localhost:8089/api/v1/review/all-reviews";
+  private GET_ALL_REVIEWS = environment.host+"api/v1/review/all-reviews";
 
   constructor(private http: HttpClient) { }
 

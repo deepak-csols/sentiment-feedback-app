@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +9,10 @@ import { Observable } from 'rxjs';
 export class AuthService {
   
 
-  private apiLoginUrl = 'http://localhost:8089/api/v1/auth/login';
-  private apiGoogleLoginUrl = 'http://localhost:8089/oauth2/authorization/google';
-  private apiSignup = 'http://localhost:8089/api/v1/auth/register';
-  private apiValidUser = 'http://localhost:8089/api/v1/user/valid-user';
+  private apiLoginUrl = environment.host+'api/v1/auth/login';
+  private apiGoogleLoginUrl = environment.host+'oauth2/authorization/google';
+  private apiSignup = environment.host+'api/v1/auth/register';
+  private apiValidUser = environment.host+'api/v1/user/valid-user';
 
   constructor(private http: HttpClient) {  }
 

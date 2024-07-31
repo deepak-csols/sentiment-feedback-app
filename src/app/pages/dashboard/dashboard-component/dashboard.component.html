@@ -7,7 +7,7 @@
     </div>
     <div *ngFor="let review of reviewModelList">
       <mat-card class="feedback-card" appearance="outlined">
-        <mat-card-header style="display: flex; align-items: center; background-color: #3d3d4e; padding: 6px; border-radius: 5px; color: antiquewhite;">
+        <mat-card-header class="card-header">
             <mat-card-title><i class="fas fa-user" style="margin-right: 8px;"></i>{{review.customerName}}</mat-card-title>
         </mat-card-header>
         <mat-card-content class="review-text-body">

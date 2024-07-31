@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PortalService } from '../../../core/service/portal/portal.service';
 import { error } from 'console';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlertService } from '../../../core/service/alert.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,11 +13,16 @@ export class ProfileComponent implements OnInit{
 
   completeProfileForm!: FormGroup;
   valid: any;
+  loader:boolean =  false;
+  @Input() profile = ''; 
 
-  constructor(private portalService: PortalService, private formBuilder: FormBuilder){ }
+  constructor(private portalService: PortalService, 
+              private formBuilder: FormBuilder, 
+              private alertService: AlertService){ }
 
   ngOnInit(): void {
 
+    console.log("PRodile :", this.profile)
     this.valid = {
       'userId': localStorage.getItem('userId'),
       'accessToken': localStorage.getItem('accessToken')
@@ -33,11 +39,8 @@ export class ProfileComponent implements OnInit{
   }
 
   getProfile(){
-
-
     this.portalService.getProfile(this.valid).subscribe(
       response => {
-        console.log('Get profile response is : ', response);
         this.completeProfileForm = this.formBuilder.group({
           name: response.name,
           email: [{value: response.email, disabled: true}],
@@ -65,13 +68,16 @@ export class ProfileComponent implements OnInit{
     // }
 
     const profileData = this.completeProfileForm.value
-
+    this.loader = true;
     this.portalService.completeProfile(valid, profileData).subscribe(
-      response => {
-        console.log("response is : ", response)
+      (response) => {
+        this.loader = false;
+        this.alertService.openAlert(response.message);
+        
       },
       error => {
-        console.log("An error occurred!")
+        this.loader = false;
+        //this.alertService.openAlert(response!.error === 'false' ? response.message : "");
       }
     )
 

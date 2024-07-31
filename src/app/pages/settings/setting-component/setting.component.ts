@@ -10,6 +10,9 @@ export class SettingComponent implements OnInit{
 
   setting!: String;
 
+  activeSettings:String = 'Profile';
+
+  profileData: string = "Deepak";
 
   sidebarList = ['Profile',
                  'Account',
@@ -33,6 +36,8 @@ export class SettingComponent implements OnInit{
 
   openSettings(list: string){
     this.setting = list;
+    this.activeSettings = list;
+  
   }
 
   closeSettings(){

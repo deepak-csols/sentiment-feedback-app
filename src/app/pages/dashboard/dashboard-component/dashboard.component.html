@@ -7,18 +7,28 @@
     </div>
     <div *ngFor="let review of reviewModelList">
       <mat-card class="feedback-card" appearance="outlined">
-        <mat-card-header class="card-header">
+        <mat-card-header class="card-header" [ngClass]="review.reviewType == 'P' ? 
+        'card-header-color-p' : review.reviewType == 'N' ? 'card-header-color-n' : 'card-header-color-m'">
             <mat-card-title><i class="fas fa-user" style="margin-right: 8px;"></i>{{review.customerName}}</mat-card-title>
         </mat-card-header>
         <mat-card-content class="review-text-body">
           <p class="review-text">{{review.reviewMsg}}</p>
         </mat-card-content>
+
+        <mat-card-content class="review-text-body" *ngIf="review.actualResponse !== null">
+          <p class="review-text"><b>Reply from Owner : </b><br>{{review.actualResponse}}</p>
+        </mat-card-content>
+
         <mat-card-footer class="example-card-footer" style="padding: 16px; border-radius: 8px;">
           <mat-chip-set>
             <mat-chip color="accent" selected><i class="fas fa-mobile-alt" style="margin-right: 4px;"></i>{{review.customerEmail}}</mat-chip>
             <mat-chip color="warn"><i class="fas fa-exclamation-triangle" style="margin-right: 4px;"></i>{{review.severity}}</mat-chip>
             <mat-chip selected><i class="fas fa-globe" style="margin-right: 4px;"></i>{{review.source}}</mat-chip>
             
+          </mat-chip-set>
+          <mat-chip-set>
+            <mat-chip color="accent" selected><i class="fa fa-list-alt" style="margin-right: 4px;"></i>{{review.reviewCategory}}</mat-chip>
+           
           </mat-chip-set>
         </mat-card-footer>
         <mat-card-actions align="end">

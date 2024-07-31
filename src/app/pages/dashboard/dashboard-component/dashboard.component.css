@@ -19,11 +19,23 @@
  .card-header {
   display: flex; 
   align-items: center; 
-  background-color: #3d3d4e; 
+  
   padding: 6px; 
   border-radius: 5px; 
   color: antiquewhite;
  } 
+
+ .card-header-color-p {
+  background-color: #098620; 
+ }
+
+ .card-header-color-n {
+  background-color: #f60b0b; 
+ }
+
+ .card-header-color-m {
+  background-color: #724306; 
+ }
 
 
 .stick-top {

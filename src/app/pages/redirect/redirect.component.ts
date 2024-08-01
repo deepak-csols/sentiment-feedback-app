@@ -11,9 +11,12 @@ export class RedirectComponent implements OnInit{
 
   userId: string|null = "";
   accessToken: string|null = "";
+  loader: boolean = false;
 
   ngOnInit(): void {
 
+
+    this.loader = true;
     this.route.queryParams.subscribe(params => {
 
       // this.userId = params['userId'];
@@ -26,6 +29,7 @@ export class RedirectComponent implements OnInit{
       this.router.navigate(['/app/dashboard'])
       // console.log('accessToken:', this.accessToken);
       // console.log('userId:', this.userId);
+      this.loader = false;
     })
 
 

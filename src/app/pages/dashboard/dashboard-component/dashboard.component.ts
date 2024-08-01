@@ -4,6 +4,7 @@ import { PortalService } from '../../../core/service/portal/portal.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ReplyDialogComponent } from '../dialog/reply-dialog/reply-dialog.component';
 import { DashboardService } from '../dashboard-service/dashboard.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,10 @@ export class DashboardComponent implements OnInit {
 
   categories:string[] = ["Google", "Website", "Yelp"];
 
-  constructor(private dialog : MatDialog, private portalService: PortalService, private dashboardService: DashboardService) {
+  constructor(private dialog : MatDialog, 
+              private portalService: PortalService,
+              private spinner :NgxSpinnerService, 
+              private dashboardService: DashboardService) {
 
   }
   
@@ -81,7 +85,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getAllReviews(){
-
+    this.spinner.show();
     // this.portalService.getAllReviews(this.valid).subscribe(
     //   response => {
 
@@ -100,6 +104,7 @@ export class DashboardComponent implements OnInit {
       response => {
         console.log("Get all reviews response : ", response)
         this.reviewModelList = response;
+        this.spinner.hide();
       },
       error => {
         console.log("An error occurred while fetch all reviews");

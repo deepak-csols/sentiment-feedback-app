@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +16,11 @@ import { MatCardModule } from '@angular/material/card';
 import { SignupComponent } from './pages/auth/signup/signup.component';
 import { RedirectComponent } from './pages/redirect/redirect.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
+interface NgxSpinnerConfig {
+  type?: string;
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,8 +32,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     AppRoutingModule,
     HttpClientModule,
     MatProgressSpinnerModule,
+    NgxSpinnerModule.forRoot({type: 'square-jelly-box'})
     
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     provideClientHydration(),
     provideAnimationsAsync()

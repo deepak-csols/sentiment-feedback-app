@@ -15,6 +15,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { SignupComponent } from './pages/auth/signup/signup.component';
 import { RedirectComponent } from './pages/redirect/redirect.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { RedirectComponent } from './pages/redirect/redirect.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    
   ],
   providers: [
     provideClientHydration(),

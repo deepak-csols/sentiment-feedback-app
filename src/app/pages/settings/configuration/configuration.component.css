@@ -1,0 +1,25 @@
+.configuration {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.configuration-heading {
+    font-weight: 500;
+    font-size: 22px;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f3f3f3;
+    flex-shrink: 0;
+    flex-basis: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.configuration-form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}

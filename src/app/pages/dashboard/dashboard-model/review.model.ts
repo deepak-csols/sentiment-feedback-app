@@ -12,4 +12,5 @@ export class ReviewModel {
     aiResponse!: string;
     businessId!: string;
     actualResponse!: string;
+    replyStatus!: string;
 }

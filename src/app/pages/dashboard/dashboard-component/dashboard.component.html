@@ -33,7 +33,7 @@
         </mat-card-footer>
         <mat-card-actions align="end">
           <button mat-button>Archive</button>
-          <button (click)="openReplyDialog(review)" mat-button>Reply</button>
+          <button (click)="openReplyDialog(review)" mat-button [disabled]="review.replyStatus === 'true'">Reply</button>
         </mat-card-actions>
       </mat-card>
     </div>

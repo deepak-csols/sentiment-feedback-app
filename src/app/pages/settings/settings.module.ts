@@ -22,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { IntegrationComponent } from './integration/integration.component';
+import { ConfigurationComponent } from './configuration/configuration.component';
 
 
 
@@ -32,7 +33,8 @@ import { IntegrationComponent } from './integration/integration.component';
     PlanComponent,
     BillingComponent,
     AccountComponent,
-    IntegrationComponent
+    IntegrationComponent,
+    ConfigurationComponent
   ],
   imports: [
     CommonModule,

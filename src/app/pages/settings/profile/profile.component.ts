@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { PortalService } from '../../../core/service/portal/portal.service';
 import { error } from 'console';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -14,11 +14,20 @@ export class ProfileComponent implements OnInit{
   completeProfileForm!: FormGroup;
   valid: any;
   loader:boolean =  false;
-  @Input() profile = ''; 
+  @Input() profile: any;
 
   constructor(private portalService: PortalService, 
               private formBuilder: FormBuilder, 
-              private alertService: AlertService){ }
+              private alertService: AlertService){ 
+
+                this.completeProfileForm = this.formBuilder.group({
+                  name: ['', Validators.required],
+                  email: ['', Validators.required],
+                  contactNo: ['', Validators.required]
+                });
+
+              }
+              
 
   ngOnInit(): void {
 
@@ -28,13 +37,37 @@ export class ProfileComponent implements OnInit{
       'accessToken': localStorage.getItem('accessToken')
     }
     
-    this.completeProfileForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      contactNo: ['', Validators.required]
-    });
+    // this.completeProfileForm = this.formBuilder.group({
+    //   name: ['', Validators.required],
+    //   email: ['', Validators.required],
+    //   contactNo: ['', Validators.required]
+    // });
 
-    this.getProfile();
+    // this.getProfile();
+
+  }
+
+  ngOnChanges(changes: SimpleChanges){
+    console.log("ngOnChanges called")
+    console.log("profile : ", this.profile)
+
+    // this.completeProfileForm = this.formBuilder.group({
+    //   name: this.profile.name,
+    //   email: [{value: this.profile.email, disabled: true}],
+    //   contactNo: this.profile.contactNumber
+    // });
+
+    if(changes['profile'] && changes['profile'].currentValue){
+
+      this.completeProfileForm.patchValue({
+        name: this.profile.name,
+        email: this.profile.email,
+        contactNo: this.profile.contactNumber
+      })
+
+      this.completeProfileForm.get('email')?.disable();
+
+    }
 
   }
 

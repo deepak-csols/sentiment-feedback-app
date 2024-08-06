@@ -1,0 +1,46 @@
+<div class="configuration">
+    <div class="configuration-heading">
+        <span>SMTP Configuration</span>
+        <button mat-flat-button color="primary" (click)="testSmtpConfiguration()">Test Config</button>
+    </div>
+    <form [formGroup]="addConfigurationForm" (ngSubmit)="addSmtpConfiguration()" class="configuration-form">
+        <mat-form-field>
+            <mat-label>Host</mat-label>
+            <input matInput formControlName="host" class="form-control">
+            <mat-error *ngIf="addConfigurationForm.controls['host'].invalid">
+              Host is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username" class="form-control">
+            <mat-error *ngIf="addConfigurationForm.controls['username'].invalid">
+              Username is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" class="form-control">
+            <mat-error *ngIf="addConfigurationForm.controls['password'].invalid">
+              Password is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>port</mat-label>
+            <input type="number" matInput formControlName="port" class="form-control">
+            <mat-error *ngIf="addConfigurationForm.controls['port'].invalid">
+              Port is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Protocol</mat-label>
+            <input matInput formControlName="protocol" class="form-control">
+            <mat-error *ngIf="addConfigurationForm.controls['protocol'].invalid">
+              Protocol is required
+            </mat-error>
+          </mat-form-field>
+          <button mat-fab extended type="submit"> Save </button>
+          
+     </form>
+     
+</div>

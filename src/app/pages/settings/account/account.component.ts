@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, input, OnInit, SimpleChanges } from '@angular/core';
 import { PortalService } from '../../../core/service/portal/portal.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { debug, error } from 'console';
@@ -16,7 +16,16 @@ export class AccountComponent implements OnInit {
   addBusinessForm!: FormGroup;
   valid: any;
 
-  constructor(private portalService: PortalService, private formBuilder: FormBuilder) { }
+  @Input() account: any;
+
+  constructor(private portalService: PortalService, private formBuilder: FormBuilder) {
+
+    this.addBusinessForm = this.formBuilder.group({
+      businessName: ['', Validators.required],
+      businessCategory: ['', Validators.required]
+    });
+
+  }
   
   ngOnInit(): void {
 
@@ -25,12 +34,29 @@ export class AccountComponent implements OnInit {
       'accessToken': localStorage.getItem('accessToken')
     }
     
-    this.addBusinessForm = this.formBuilder.group({
-      businessName: ['', Validators.required],
-      businessCategory: ['', Validators.required]
-    });
+    
 
-    this.getBusinesses();
+    // this.getBusinesses();
+
+  }
+
+  ngOnChanges(changes: SimpleChanges){
+
+    if(changes['account'] && changes['account'].currentValue){
+
+      this.addBusinessForm.patchValue({
+        businessName: this.account[0].businessName,
+        businessCategory: this.account[0].businessCategory
+      })
+
+    }
+
+    console.log(this.account)
+
+    // this.addBusinessForm = this.formBuilder.group({
+    //   businessName: this.account[0].businessName,
+    //   businessCategory: this.account[0].businessCategory
+    // });
 
   }
 

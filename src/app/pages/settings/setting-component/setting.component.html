@@ -9,8 +9,9 @@
             </div>
             <div class="sidebar-body">
                 <app-profile [profile]="profileData" *ngIf="setting === 'Profile'"></app-profile>
-                <app-account *ngIf="setting === 'Account'"></app-account>
+                <app-account [account]="accountData" *ngIf="setting === 'Account'"></app-account>
                 <app-integration *ngIf="setting === 'Integrations'"></app-integration>
+                <app-configuration [smtpConfigData]="smtpConfigData" *ngIf="setting === 'Configurations'"></app-configuration>
             </div>
         </div>
         <button class="close-button" (click)="closeSettings()" mat-icon-button aria-label="close dialog" mat-dialog-close>

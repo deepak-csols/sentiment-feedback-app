@@ -2,6 +2,8 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ReviewModel } from '../../dashboard-model/review.model';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DashboardService } from '../../dashboard-service/dashboard.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { AlertService } from '../../../../core/service/alert.service';
 
 @Component({
   selector: 'app-reply-dialog',
@@ -18,7 +20,7 @@ export class ReplyDialogComponent implements OnInit {
   aiResponse!: string;
 
 
-  constructor(private dashboardService: DashboardService){ }
+  constructor(private dashboardService: DashboardService, private spinner :NgxSpinnerService, private alertSerive: AlertService){ }
 
   ngOnInit(): void {
 
@@ -34,11 +36,13 @@ export class ReplyDialogComponent implements OnInit {
 
   replyReview(reviewId: string){
 
-    debugger
+    this.spinner.show();
     this.dashboardService.replyReview(this.valid, reviewId, this.actualResponse).subscribe(
       response => {
+        this.spinner.hide();
         console.log('Reply to a review response : ', response);
         this.dialogRef.close();
+        this.alertSerive.openAlert(response.message);
       },
       error => {
         console.error('An error occurred while reply to a reivew');
